@@ -1,6 +1,6 @@
 
 -- лабораторная 1, вариант 7
--- 1 Клиенты (customers) с именем 'David'. Сортировка: Фамилия.
+-- 1.1 Клиенты (customers) с именем 'David'. Сортировка: Фамилия.
 select last_name, first_name, gender, email, phone, latitude, longitude 
 from customers
 where first_name = 'David' 
@@ -11,7 +11,7 @@ order by last_name asc
 -- Все остальные колонки не выведены, так как в противном случае выгрузка выходит слишком объемной, много бессмысленной информации. 
 
 
--- 2 Письма (emails), отправленные весной (март-май) 2015 года.
+-- 1.2 Письма (emails), отправленные весной (март-май) 2015 года.
 select email_subject, bounced, sent_date
 from emails
 where sent_date between '2015-04-01' and '2015-05-01' and opened_date is not null and clicked = 't'
@@ -19,3 +19,20 @@ order by sent_date asc
 -- При выполнении скрипта, созданного строго по заданию выгрузка имеет более 7000 строк, поэтому принято решение ввести дополнительные условия для более оптимального результата (669 строк)
 -- В задании нет требований к полям выгрузки, поэтому артибуты email_id, customer_id, opened_date и clicked_date не выводим (opened и clicked не попали в выгрузку, тк после введения доп условий эти данные - тавтология, которая мешает оптимальному анализу данных)
 
+
+-- 1.3 Таблица autos (тип 'automobile'). Цену умножить на 1.05. Удалить год < 2000.
+-- создаем копию таблицы, чтобы не портить основную (В ЗАДАНИИ НЕВЕРНЫЕ НАЗВАНИЯ ТАБЛИЦЫ И АТРИБУТА)
+create table products_02 as
+select * 
+from products;
+
+UPDATE products_02 
+SET base_msrp = base_msrp * 1.05 
+WHERE product_type = 'automobile';
+
+-- Затем удаляем записи с годом выпуска меньше 2000
+DELETE FROM products_02 
+WHERE year < 2013; -- в таблице самый старый товар - 2010, поэтому год изменен
+-- проверка
+select *
+from products_02; -- 10 записей (было 12)
