@@ -23,7 +23,7 @@
 
 Скрипт для выволнения запроса:
 
-```
+```sql 
 select 
 	round(avg(base_msrp)::numeric, 2) as "Средняя стоимость скутеров"
 from products 
@@ -45,7 +45,7 @@ where product_type = 'scooter' and base_msrp is not null
 
 Скрипт для выволнения запроса:
 
-```
+```sql
 select 
 	dealership_id,
 	count(*) as "Количество транзакций"
@@ -69,7 +69,7 @@ order by count(*) desc;
 
 Скрипт для выволнения запроса:
 
-```
+```sql
 select 
 	channel, 
 	max(sales_amount)
