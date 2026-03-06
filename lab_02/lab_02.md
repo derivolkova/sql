@@ -13,6 +13,7 @@
 
 Модернизация запроса: добавлено географическое условие для опттимизации выгрузки,
 
+Скрипт для выволнения запроса:
 
 ```sql
 select 
@@ -25,11 +26,9 @@ from
 where c.state = 'LA';
 ```
 
-
 Выполнение запроса представлено на скриншоте:
 
 <img width="350" height="820" alt="image" src="https://github.com/user-attachments/assets/8d47b80c-f68d-474e-b977-ea7a8fc28d24" />
-
 
 ---
 
@@ -38,6 +37,8 @@ where c.state = 'LA';
 Модернизация запроса:
 1. также для оптимизации добавлены гендерное условие и условие остуствие номера телефона;
 2. скриншот выполнения SELECT.
+
+Скрипт для выволнения запроса:
 
 ```sgl
 SELECT DISTINCT 
@@ -50,18 +51,17 @@ WHERE d.dealership_id = 5 and c.gender = 'F' and phone is null
 order by last_name;
 ```
 
-
 Выполнение запроса представлено на скриншоте:
 
 <img width="562" height="840" alt="image" src="https://github.com/user-attachments/assets/20c874bc-a70c-467d-aa7a-22829820a408" />
-
-
 
 ---
 
 ## Задание 2.3: замените все пустые значения в столбце suffix таблицы customers на пустую строку или 'N/A'.
 
 Модернизация запроса: все действия направлены на таблицу-копию. 
+
+Скрипт для выволнения запроса:
 
 ```sgl
 create table customers_02 as
@@ -76,7 +76,6 @@ WHERE suffix IS NULL OR suffix = '';
 Выполнение запроса представлено на скриншоте:
 
 <img width="147" height="830" alt="image" src="https://github.com/user-attachments/assets/c5c294a0-d71a-4188-bf49-a43b50830b38" />
-
 
 ---
 
