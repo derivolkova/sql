@@ -17,7 +17,7 @@
 
 Скрипт для выволнения запроса:
 
-```sgl
+```sql
 select last_name, first_name, gender, email, phone, latitude, longitude 
 from customers
 where first_name = 'David' 
@@ -38,7 +38,7 @@ order by last_name asc
 
 Скрипт для выволнения запроса:
 
-```sgl
+```sql
 select email_subject, bounced, sent_date
 from emails
 where sent_date between '2015-04-01' and '2015-05-01' and opened_date is not null and clicked = 't'
@@ -59,7 +59,7 @@ order by sent_date asc
 
 Скрипт для выволнения запроса:
 
-```sgl
+```sql
 create table products_02 as
 select * 
 from products;
