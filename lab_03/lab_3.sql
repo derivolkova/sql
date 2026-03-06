@@ -26,7 +26,6 @@ order by count(*) desc;
 
 -- 3.3 Вывести каналы продаж, где максимальная сумма продажи > 15,000.
 
-select * from sales
 select 
 	channel, 
 	max(sales_amount)
@@ -35,4 +34,5 @@ group by channel
 having max(sales_amount) > 15000
 -- фильтрация выполняет условие задания (минимальное допустимое значение вычисляемого поля)
 order by max(sales_amount) desc;
+
 -- сортировка по убыванию выводит сначала тот канал, где максимальная сумма продаж больше
